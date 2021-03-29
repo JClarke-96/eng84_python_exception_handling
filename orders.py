@@ -11,5 +11,18 @@ def open_file(file_name):
         print("Thank you")
 
 
+def write_file(file_name):
+    try:
+        file = open(file_name, "a")
+        print("File found")
+        write = input("")
+    except FileNotFoundError as errmsg:
+        print(f"File not found {errmsg}")
+    finally:
+        file.write("\n" + write)
+        file.close()
+
+
 open_file("order.txt")
 open_file("orders.txt")
+write_file("orders.txt")
